@@ -16,6 +16,7 @@ public class TryRetrunDemo {
         int i = 1;
         try {
             i++;
+//            int j = i/0; // 发生异常执行最有一个return
             System.out.println("try:" + i);
             return i;
         } catch (Exception e) {
