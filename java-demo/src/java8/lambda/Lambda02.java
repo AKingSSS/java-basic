@@ -2,7 +2,6 @@ package java8.lambda;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -27,17 +26,22 @@ import java.util.List;
  * @Date 2020/5/15 14:23
  * @Version 1.0
  **/
-public class Lambda01 {
+public class Lambda02 {
     public static void main(String[] args) {
-        List<Integer> list= new ArrayList<>();
-        list.add(new Integer(23));
-        list.add(new Integer(21));
-        list.add(new Integer(13));
-        list.add(new Integer(24));
-        list.add(new Integer(43));
-        list.add(new Integer(25));
+        final MyInterface intf1 = new MyInterface() {
+            @Override
+            public void f1() {
+                System.out.println("==>Java匿名函数类的实现方式");
+            }
+        };
+        intf1.f1();
+        MyInterface intf2 = ()->{
+          System.out.println("==>Lambda表达式的实现方式");
+        };
+        intf2.f1();
+    }
 
-        Collections.sort(list,(o1,o2)->{return o1.compareTo(o2);});
-        System.out.println(list);
+    interface MyInterface {
+        void f1();
     }
 }
